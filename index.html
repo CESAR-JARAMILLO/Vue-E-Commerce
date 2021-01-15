@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css ">
 </head>
 <body>
-    // Connected to Vue instance, through element property
-    <div id="app">
-        <h1>{{ product }}</h1> // Pulls from Vue instance data using expression
+    <div class="nav-bar">
+
+        <!-- Connected to Vue instance, through element property -->
+        <div id="app">
+            <div class="product">
+            
+                <!-- v-bind dynamicly binds an attribute to an expression -->
+                <!-- The attribute her is "src", and the expression is inside the quotes "product-image" -->
+               <!-- The short hand is just the colon whithout "v-bind" -->
+                <div class="product-image">
+                    <!-- Creates a bond between the data and the attribute -->
+                    <img v-bind:src="image">
+                </div>                
+                
+                <div class="product-info">
+                    <!-- Pulls from Vue instance data using expression -->
+                    <h1>{{ product }}</h1> 
+                </div>
+            
+            </div>
+        </div>
+    
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

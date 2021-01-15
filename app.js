@@ -5,6 +5,7 @@
 var app = new Vue({
     el: '#app', // element property, connects to div with "app" id
     data: {
-        product: 'Socks'
+        product: 'Socks',
+        image: './images/vmSocks-green-onWhite.jpg'
     }
 })
