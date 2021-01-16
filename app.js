@@ -8,6 +8,34 @@ var app = new Vue({
         product: 'Socks',
         description: 'A pair of warm, fuzzy socks',
         image: './images/vmSocks-green-onWhite.jpg',
-        link: 'https://www.vuemastery.com'
+        link: 'https://www.vuemastery.com',
+        inStock: true,
+        onSale: true,
+        details: ["80% cotton", "20% polyester", "Gender-neutral"],
+        variants: [
+            {
+                variantId: 2234,
+                variantColor: "Green",
+                variantImage: './images/vmSocks-green-onWhite.jpg'
+            },
+            {
+                variantId: 2235,
+                variantColor: "Blue",
+                variantImage: './images/vmSocks-blue-onWhite.jpg'
+            }
+        ],
+        sizes: ['S', 'M', 'L', 'XL', 'XLL'],
+        cart: 0
+    },
+    methods : {
+        addToCart() {
+            this.cart += 1
+        },
+        removeFromCart() {
+            this.cart -= 1
+        },
+        updateProduct(variantImage) {
+            this.image = variantImage
+        }
     }
 })
