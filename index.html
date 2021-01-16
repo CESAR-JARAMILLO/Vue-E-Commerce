@@ -11,57 +11,7 @@
 
         <!-- Connected to Vue instance, through element property -->
         <div id="app">
-            <div class="product">
-            
-                <!-- v-bind dynamicly binds an attribute to an expression -->
-                <!-- The attribute her is "src", and the expression is inside the quotes "product-image" -->
-               <!-- The short hand is just the colon whithout "v-bind" -->
-                <div class="product-image">
-                    <!-- Creates a bond between the data and the attribute -->
-                    <img v-bind:src="image">
-                    <a :href="link">View Image</a>
-                </div>                
-                
-                <div class="product-info">
-                    <!-- Pulls from Vue instance data using expression -->
-                    <h1>{{ title }}</h1> 
-                    <p>{{ description }}</p>
-                    <!-- unlike v-if, v-show toggles visiblity off and on -->
-                    <!-- v-if removes or adds element, not as efficient -->
-                    <p v-show="inStock">In Stock</p>
-                    <p :class="{ outOfStock: !inStock }"
-                    v-show="!inStock">Out of Stock</p>
-                    <span v-if="onSale">{{ sale }}</span>
-
-                    <!-- v-for can be used to iterate over an array to display data -->
-                    <ul>
-                        <li v-for="detail in details">{{ detail }}</li>
-                    </ul>
-
-                    <!-- When using v-for it's recommended to give each rendered element it's own unique key. -->
-                    <div v-for="(variant, index) in variants" 
-                    :key="variant.variantId"
-                    class="color-box"
-                    :style="{ backgroundColor: variant.variantColor }"
-                    @mouseover="updateProduct(index)">
-                    </div>
-
-                    <ul>
-                        <li v-for="size in sizes">{{ size }}</li>
-                    </ul>
-
-                    <button v-on:click="addToCart" 
-                    :disabled="!inStock"
-                    :class="{ disabledButton: !inStock }">Add to cart</button>
-                    <button v-on:click="removeFromCart">Remove from cart</button>
-
-                    <div class="cart">
-                        <p>Cart({{ cart }})</p>
-                    </div>
-
-                </div>
-            
-            </div>
+            <product :premium="premium"></product>
         </div>
     
     </div>
