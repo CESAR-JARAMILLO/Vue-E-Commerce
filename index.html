@@ -24,13 +24,14 @@
                 
                 <div class="product-info">
                     <!-- Pulls from Vue instance data using expression -->
-                    <h1>{{ product }}</h1> 
+                    <h1>{{ title }}</h1> 
                     <p>{{ description }}</p>
                     <!-- unlike v-if, v-show toggles visiblity off and on -->
                     <!-- v-if removes or adds element, not as efficient -->
                     <p v-show="inStock">In Stock</p>
-                    <p :class="{ outOfStock: !inStock }">Out of Stock</p>
-                    <span v-if="onSale">On Sale!</span>
+                    <p :class="{ outOfStock: !inStock }"
+                    v-show="!inStock">Out of Stock</p>
+                    <span v-if="onSale">{{ sale }}</span>
 
                     <!-- v-for can be used to iterate over an array to display data -->
                     <ul>
@@ -38,11 +39,11 @@
                     </ul>
 
                     <!-- When using v-for it's recommended to give each rendered element it's own unique key. -->
-                    <div v-for="variant in variants" 
+                    <div v-for="(variant, index) in variants" 
                     :key="variant.variantId"
                     class="color-box"
                     :style="{ backgroundColor: variant.variantColor }"
-                    @mouseover="updateProduct(variant.variantImage)">
+                    @mouseover="updateProduct(index)">
                     </div>
 
                     <ul>
