@@ -66,6 +66,7 @@
   }
   
   .review-form {
+    float: left;
     width: 400px;
     padding: 20px;
     margin: 40px;
